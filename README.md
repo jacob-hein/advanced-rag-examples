@@ -22,10 +22,10 @@ conda create -n advanced-rag-env
 conda activate advanced-rag-env
 ```
 
-Install Jupyter Notebook
+Install Jupyter Lab
 
 ```bash
-conda install jupyter notebook
+conda install -c conda-forge jupyterlab
 ```
 
 Install other dependencies
@@ -36,6 +36,13 @@ pip install -r requirements.txt
 
 If the different notebooks need specific dependencies they might require you to run pip install for specific requirement files. This will be specified in each notebook.
 
+## Run
+
+Using [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
+
+```bash
+jupyter lab
+```
 
 
 
