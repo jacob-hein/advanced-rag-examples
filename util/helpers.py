@@ -36,7 +36,7 @@ def create_and_save_md_files(pages, path="./data/docs/"):
     for page in pages:
         create_and_save_md_file(page, path)
 
-def create_and_save_md_file(page, path="./data/docs/"):
+def create_and_save_md_file(page: FandomPage, path="./data/docs/"):
     """
     Create a Markdown file based on the given page object.
 
@@ -46,8 +46,8 @@ def create_and_save_md_file(page, path="./data/docs/"):
     Returns:
         None
     """
-    title = page.content["title"]
-    filename = os.path.join("", f'{path}{title.lower().replace(' ', '-')}.md')
+    title: str = page.content["title"]
+    filename = os.path.join("", f"{path}{ title.lower().replace(' ', '-') }.md")
     mdFile = MdUtils(file_name=filename, title=title)
     mdFile.new_header(level=1, title="Summary")
     mdFile.new_paragraph(page.summary)
