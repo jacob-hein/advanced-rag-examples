@@ -17,7 +17,7 @@ conda init [bash|zsh|fish|powershell]
 
 Create and activate new environment
 
-´´´bash
+```bash
 conda create -n advanced-rag-env
 conda activate advanced-rag-env
 ```
