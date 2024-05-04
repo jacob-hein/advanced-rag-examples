@@ -18,7 +18,7 @@ conda init [bash|zsh|fish|powershell]
 Create and activate new environment. Python should be version 3.11.6, since some packages might fail to install in Python 3.12+
 
 ```bash
-conda create -n advanced-rag-env -c conda-forge --python==3.11.6 ipython
+conda create -n advanced-rag-env -y -c conda-forge python==3.11.6 ipython
 conda activate advanced-rag-env
 ```
 
