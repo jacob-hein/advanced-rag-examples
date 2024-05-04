@@ -7,6 +7,7 @@ from wikipedia import WikipediaPage
 from mdutils.mdutils import MdUtils
 
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+from llama_index.core.schema import NodeWithScore 
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 
@@ -150,3 +151,11 @@ def generate_vector_index(docs_path="./data/docs", chunk_size=512) -> VectorStor
         documents, transformations=[splitter], embed_model=embed_model
     )
     return index
+
+def pretty_print_node(node: NodeWithScore):
+    print(str(node))
+    print("Size: ", len(node.text))
+    print("Full text: ")
+    print("---------------------------")
+    print(str(node.text))
+    print("---------------------------")
