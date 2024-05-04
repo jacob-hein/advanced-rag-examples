@@ -52,6 +52,7 @@ def create_and_save_wiki_md_files(pages: list[WikipediaPage], path="./data/docs/
         None
     """
     if not os.path.exists(path):
+        print("Creating directory: ", path)
         os.makedirs(path)
 
     for page in pages:
