@@ -1,15 +1,26 @@
 import fandom
 import os
 import wikipedia
+import python_weather
 
 from fandom import FandomPage
 from wikipedia import WikipediaPage
 from mdutils.mdutils import MdUtils
+from pydantic import Field
 
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core.schema import NodeWithScore 
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.node_parser import SentenceSplitter
+
+async def get_weather(city: str = Field("A city name")) -> str:
+    """Useful for getting todays weather forecast for a given city."""
+    async with python_weather.Client() as client:
+        weather = await client.get(location=city, locale=python_weather.Locale.DANISH)
+        
+        day = next(iter(weather.daily_forecasts))
+        forecast = [f'{str(hourly.time)}: {hourly.temperature}°C, Rain: {hourly.chances_of_rain}%, Cloud cover: {hourly.cloud_cover}%' for hourly in day.hourly_forecasts]
+        return f'On {day.date}, {weather.location} will have a high of {day.highest_temperature}°C and a low of {day.lowest_temperature}°C. The forecast is:\n\n{"\n".join(forecast)}'
 
 
 def get_wiki_pages(articles=[]) -> list[WikipediaPage]:
