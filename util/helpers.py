@@ -20,7 +20,7 @@ async def get_weather(city: str = Field("A city name")) -> str:
         
         day = next(iter(weather.daily_forecasts))
         forecast = [f'{str(hourly.time)}: {hourly.temperature}°C, Rain: {hourly.chances_of_rain}%, Cloud cover: {hourly.cloud_cover}%' for hourly in day.hourly_forecasts]
-        return f'On {day.date}, {weather.location} will have a high of {day.highest_temperature}°C and a low of {day.lowest_temperature}°C. The forecast is:\n\n{"\n".join(forecast)}'
+        return f'On {day.date}, {weather.location} will have a high of {day.highest_temperature}°C and a low of {day.lowest_temperature}°C. The forecast is:{chr(10)}{chr(10)}{f"{chr(10)}".join(forecast)}'
 
 
 def get_wiki_pages(articles=[]) -> list[WikipediaPage]:
