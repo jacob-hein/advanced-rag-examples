@@ -1,5 +1,7 @@
 # Examples of Advanced RAG techniques
 
+<img src="img/Overview.png" alt="image" width="500" height="auto">
+
 This repo contains a list of Jupyter notebooks with examples and explanations of different RAG techniques. The idea behind the examples is to be used as a sort of toolbox to be used when developing LLM applications with RAG.
 
 The examples will use a mix of [LlamaIndex](https://docs.llamaindex.ai/en/latest/) and some more basic approaches.
@@ -28,7 +30,7 @@ Install Jupyter Lab
 conda install -c conda-forge jupyterlab
 ```
 
-Install other dependencies
+Install base dependencies. These are common dependencies for all notebooks.
 
 ```bash
 pip install -r requirements.txt
@@ -49,3 +51,21 @@ Using [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable/getting_started/
 ```bash
 jupyter lab
 ```
+
+## Notebooks
+
+The notebooks are ordered  to fit with the typical Sequential Pattern for Advanced RAG of 
+
+*Indexing -> Pre-Retrieval -> Retrieval -> Post-Retrieval -> Generation*
+
+
+- [01 - Baseline RAG Example](./baseline-rag.ipynb)
+- [02 - Chunking](./chunking.ipynb)
+- [03 - Query Rewriting](./query-rewriting.ipynb)
+- [04 - Query Routing](./query-routing.ipynb)
+- [05 - Retrieval](./retrieval.ipynb)
+- [06 - Post-Retrieval](./post-retrieval.ipynb) ]
+- [07 - RAG Fusion](./rag-fusion.ipynb)
+- [08 - Fine-Tuning](./fine-tuning.ipynb) (Work in progress)
+- [09 - Evaluating RAG](./evaluation.ipynb)
+- [10 - Advanced RAG Example](./advanced-rag.ipynb)
