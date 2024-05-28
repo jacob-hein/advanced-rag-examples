@@ -50,6 +50,38 @@ def get_malazan_pages(articles=["Anomander Rake", "Tayschrenn", "Kurald Galain",
     pages = [fandom.page(article) for article in articles]
     return pages
 
+def get_theoffice_pages() -> list[FandomPage]:
+    """
+    Retrieves FandomPage objects for the specified articles from the Malazan wiki.
+
+    Args:
+        articles (list[str], optional): A list of article names to retrieve. Defaults to ["Anomander Rake", "Tayschrenn", "Kurald Galain"].
+
+    Returns:
+        list[FandomPage]: A list of FandomPage objects corresponding to the specified articles.
+    """
+    articles = [
+    "Michael Scott",
+    "Dwight Schrute",
+    "Jim Halpert",
+    "Pam Beesly",
+    "Ryan Howard",
+    "Andy Bernard",
+    "Angela Martin",
+    "Kelly Kapoor",
+    "Toby Flenderson",
+    "Creed Bratton",
+    "Darryl Philbin",
+    "Kevin Malone",
+    "Meredith Palmer",
+    "Oscar Martinez",
+    "Phyllis Vance",
+    "Stanley Hudson"
+]
+    fandom.set_wiki("theoffice")
+    pages = [fandom.page(article) for article in articles]
+    return pages
+
 
 def create_and_save_wiki_md_files(pages: list[WikipediaPage], path="./data/docs/"):
     """

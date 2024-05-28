@@ -8,3 +8,5 @@ openai
 fandom-py
 llama-index
 llama-index-llms-openai
+llama-index-llms-azure-openai
+llama-index-embeddings-azure-openai
