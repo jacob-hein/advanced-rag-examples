@@ -44,6 +44,7 @@ default_prompt = """You are a helpful assistant that answers questions about the
     {context}
     ---------------------
     Given the context information and not prior knowledge, answer the query. Always provide an answer in the Danish language.
+    Below the answer, the source of the answer should be provided including file_name and page number.
     Query: {query}
     Answer: 
     """
@@ -55,6 +56,7 @@ prompt_template = st.sidebar.text_area("Prompt Template", default_prompt)
 if query := st.chat_input("What is up?"):
     #RAG
     result = collection_load.query(query_texts=[query], n_results=5)
+
     context = result["documents"][0]
     prompt = PromptTemplate(
     """You are a helpful assistant that answers questions about the course material from "Philosophy of Computer Science (VtDat)" using provided context.
@@ -62,7 +64,8 @@ if query := st.chat_input("What is up?"):
     ---------------------
     {context}
     ---------------------
-    Given the context information and not prior knowledge, answer the query. Always provide an answer in the Danish language.
+    Given the context information and not prior knowledge, answer the query. Always provide an answer in the Danish language. 
+    Below the answer, the source of the answer should be provided including file_name and page number.
     Query: {query}
     Answer: 
     """,
