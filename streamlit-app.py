@@ -5,7 +5,7 @@ import chromadb
 from chromadb.config import Settings
 from llama_index.core import PromptTemplate
 
-st.title("VtDat Chatbot")
+st.title("SEGES-GPT")
 
 client = AzureOpenAI(api_key=st.secrets["OPENAI_API_KEY"], 
                 api_version="2024-05-01-preview", 
